@@ -6,17 +6,7 @@ public class Explosion : MonoBehaviour
 {
     public GameObject broken_guckloch;
     public GameObject particles;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Kamerafahrt kamerafahrt;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -36,6 +26,7 @@ public class Explosion : MonoBehaviour
             {
                 rb.AddExplosionForce(200f,other.contacts[0].point,2);
             }
+            kamerafahrt.setGucklochKaputt(true);
             StartCoroutine(DestroyObjectAfterDelay(broken));
 
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Kamerafahrt : MonoBehaviour
 {
+    private Boolean gucklochKaputt = false;
     private Vector3[] positions = new Vector3[]{ 
         new Vector3(3.65f,0.8f,2.82f),
         new Vector3(3.63f,0.8f,-3.9f),
@@ -34,7 +35,7 @@ public class Kamerafahrt : MonoBehaviour
             }
         }
 
-        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+        if (gucklochKaputt && OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
         {
             OVRInput.Controller activeController = OVRInput.GetActiveController();
             if ((activeController & OVRInput.Controller.RTouch) == OVRInput.Controller.RTouch)
@@ -53,9 +54,16 @@ public class Kamerafahrt : MonoBehaviour
 
     public void GoToNextPosition()
     {
-        int i = nextPosition();
-        transform.position = positions[i];
-        transform.rotation = rotation[i];
+        if (gucklochKaputt) { 
+            int i = nextPosition();
+            transform.position = positions[i];
+            transform.rotation = rotation[i];
+        }
+    }
+
+    public void setGucklochKaputt(Boolean wert)
+    {
+        gucklochKaputt = wert;
     }
 
 

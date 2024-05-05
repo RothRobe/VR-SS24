@@ -1,5 +1,6 @@
 # Virtual Reality und 3D Interaktionen im Sommersemester 2024
 Die Projekte für das Modul "VR und 3D Interaktion" im Sommersemester 2024
+Der Code befindet sich unter: [https://github.com/RothRobe/VR-SS24](https://github.com/RothRobe/VR-SS24)
 
 Wird für jedes Projekt erweitert.
 

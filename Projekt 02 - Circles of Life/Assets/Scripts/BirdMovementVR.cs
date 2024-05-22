@@ -73,11 +73,6 @@ public class BirdMovementVR : MonoBehaviour
         }
         else
         {
-            //Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f,140f,0f), Time.deltaTime * speed);
-            /*BirdOrbit.transform.position = targetPosition;
-            BirdOrbit.transform.rotation = Quaternion.Euler(0f,0f,0f);
-            transform.parent = BirdOrbit.transform;
-            transform.rotation = Quaternion.Euler(0,140f,0);*/
             offset = (transform.position - targetPosition).normalized * 5f;
             transform.position = targetPosition + offset;
             isRotating = true;

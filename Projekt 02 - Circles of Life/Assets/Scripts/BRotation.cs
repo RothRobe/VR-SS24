@@ -6,11 +6,6 @@ public class BRotation : MonoBehaviour
 {
     [SerializeField][Range(-180,180)]
     private float _DegreesPerSecond;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

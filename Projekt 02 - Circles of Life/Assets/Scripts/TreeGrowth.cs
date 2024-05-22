@@ -3,7 +3,7 @@ using UnityEngine;
 public class TreeGrowth : MonoBehaviour
 {
     public float growthRate = 0.1f; // Die Geschwindigkeit, mit der der Baum wächst
-    public float maxScale = 10f; // Die maximale Skalierung des Baums
+    public float maxScale = 1f; // Die maximale Skalierung des Baums
     public float fadeDuration = 2f; // Dauer des Ausblendens, nachdem der Baum die maximale Größe erreicht hat
 
     private bool hasReachedMaxScale = false;

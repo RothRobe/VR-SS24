@@ -444,6 +444,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 507085909007877230, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
+      propertyPath: _interactableView
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1531537569846140348, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -468,7 +472,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1674882035120601845, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
+    - {fileID: 6215352358469590304, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
+    - {fileID: 5525833905135166362, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
+    - {fileID: 507085909007877230, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
+    - {fileID: 2647738979687606124, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
+    - {fileID: 1531537569846140348, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
+    - {fileID: 7458132088609260214, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
+    - {fileID: 9138069552073480925, guid: 15b4a37f53dd96d499ffe0ab325f378e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -963,7 +975,7 @@ GameObject:
   - component: {fileID: 1837008903}
   - component: {fileID: 1837008902}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,7 +997,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -5}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837008902
@@ -1124,7 +1136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -366.8}
+  m_AnchoredPosition: {x: 0, y: -366.8}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1920663009
@@ -1147,7 +1159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Hallo kleiner Vogel!\n Wie gut, dass du hier bist."'
+  m_text: Hallo kleiner Vogel!\nWie gut, dass du hier bist.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1354,6 +1366,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 963194228}
+  - {fileID: 436927122}
   - {fileID: 758391807}
   - {fileID: 1002186513088780654}
   - {fileID: 1343290702}
@@ -1364,4 +1377,3 @@ SceneRoots:
   - {fileID: 599248760}
   - {fileID: 2140636}
   - {fileID: 1944523299}
-  - {fileID: 436927122}

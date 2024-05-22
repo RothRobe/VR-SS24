@@ -11,14 +11,13 @@ public class TreeGrowth : MonoBehaviour
     private Renderer treeRenderer;
     private Color initialColor;
 
+    private TreeSpawner _treeSpawner;
+
     void Start()
     {
+        _treeSpawner = GameObject.Find("/TreeSpawner").GetComponent<TreeSpawner>();
+        
         treeRenderer = GetComponent<Renderer>();
-        if (treeRenderer == null)
-        {
-            Debug.LogError("Renderer not found on the tree object.");
-            return;
-        }
 
         initialColor = treeRenderer.material.color;
 
@@ -38,7 +37,7 @@ public class TreeGrowth : MonoBehaviour
         // Wenn der Baum die maximale Größe noch nicht erreicht hat, skaliere ihn weiter
         if (!hasReachedMaxScale)
         {
-            transform.localScale += Vector3.one * growthRate * Time.deltaTime;
+            transform.localScale += Vector3.one * (growthRate * Time.deltaTime);
 
             // Überprüfe, ob der Baum die maximale Größe erreicht hat
             if (transform.localScale.x >= maxScale)
@@ -61,6 +60,7 @@ public class TreeGrowth : MonoBehaviour
             // Wenn der Timer abgelaufen ist, deaktiviere oder zerstöre den Baum
             if (fadeTimer <= 0)
             {
+                _treeSpawner.RemoveFromList(gameObject);
                 Destroy(gameObject);
             }
         }

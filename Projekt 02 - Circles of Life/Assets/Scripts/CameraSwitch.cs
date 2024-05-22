@@ -26,7 +26,7 @@ public class CameraSwitch : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Wechsle zur n‰chsten Kamera
+            // Wechsle zur n√§chsten Kamera
             currentCameraIndex = (currentCameraIndex + 1) % 3;
             SwitchCamera();
         }

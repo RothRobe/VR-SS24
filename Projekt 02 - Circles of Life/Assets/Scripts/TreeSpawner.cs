@@ -9,8 +9,13 @@ public class TreeSpawner : MonoBehaviour
     public float minDistance = 2f; // Mindestabstand zwischen den Bäumen
     public float minSpawnInterval = 2f; // Mindestzeitintervall zwischen dem Spawnen neuer Bäume
     public float maxSpawnInterval = 5f; // Maximale Zeitintervall zwischen dem Spawnen neuer Bäume
+    
+    private List<GameObject> trees = new List<GameObject>();
 
-    private List<Vector3> treePositions = new List<Vector3>();
+    public List<GameObject> GetTreeList()
+    {
+        return trees;
+    }
 
     void Start()
     {
@@ -37,29 +42,18 @@ public class TreeSpawner : MonoBehaviour
             Random.Range(-areaSize / 2, areaSize / 2)
         );
 
-        while (!IsPositionValid(randomPosition))
+        if (IsPositionValid(randomPosition))
         {
-            randomPosition = new Vector3(
-                Random.Range(-areaSize / 2, areaSize / 2),
-                0,
-                Random.Range(-areaSize / 2, areaSize / 2)
-            );
-        }
-        GameObject newTree = Instantiate(treePrefab, randomPosition, Quaternion.identity);
-        treePositions.Add(randomPosition);
-
-        // Entferne die Position aus der Liste, nachdem der Baum verschwindet
-        TreeGrowth treeGrowth = newTree.GetComponent<TreeGrowth>();
-        if (treeGrowth != null)
-        {
-            StartCoroutine(RemoveTreePositionAfterFade(treeGrowth.fadeDuration, randomPosition));
+            GameObject newTree = Instantiate(treePrefab, randomPosition, Quaternion.identity);
+            trees.Add(newTree);
         }
     }
 
     bool IsPositionValid(Vector3 position)
     {
-        foreach (Vector3 treePosition in treePositions)
+        foreach (GameObject tree in trees)
         {
+            Vector3 treePosition = tree.transform.position;
             if (Vector3.Distance(treePosition, position) < minDistance)
             {
                 return false;
@@ -68,10 +62,8 @@ public class TreeSpawner : MonoBehaviour
         return true;
     }
 
-    IEnumerator RemoveTreePositionAfterFade(float fadeDuration, Vector3 position)
+    public void RemoveFromList(GameObject tree)
     {
-        // Warte, bis der Baum vollständig verblasst ist
-        yield return new WaitForSeconds(fadeDuration);
-        treePositions.Remove(position);
+        trees.Remove(tree);
     }
 }

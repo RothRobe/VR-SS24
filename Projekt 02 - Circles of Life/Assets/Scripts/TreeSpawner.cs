@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class TreeSpawner : MonoBehaviour
 {
@@ -65,5 +66,11 @@ public class TreeSpawner : MonoBehaviour
     public void RemoveFromList(GameObject tree)
     {
         trees.Remove(tree);
+    }
+
+    public bool IsBiggestTree(GameObject tree)
+    {
+        if (trees.Count == 0) return false;
+        return trees.OrderByDescending(go => go.transform.localScale.magnitude).First() == tree;
     }
 }

@@ -19,15 +19,15 @@ public class BirdController : MonoBehaviour
         
     }
 
-    public void SetBirdTarget(Vector3 position)
+    public void SetBirdTarget(GameObject tree)
     {
-        bird.GetComponent<BirdMovementVR>().SetTargetPosition(position);
+        bird.GetComponent<BirdMovementVR>().SetTargetPosition(tree);
     }
 
     public void SetSelectedTree(GameObject tree)
     {
         if(selectedTree != null) selectedTree.GetComponent<SelectTree>().Deselect();
         selectedTree = tree;
-        SetBirdTarget(tree.transform.position);
+        SetBirdTarget(tree);
     }
 }

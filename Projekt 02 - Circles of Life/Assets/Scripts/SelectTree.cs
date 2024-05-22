@@ -10,7 +10,7 @@ public class SelectTree : MonoBehaviour
     private bool _isSelected;
     private void Start()
     {
-        _controller = GameObject.Find("/BirdController").GetComponent<BirdController>();
+        _controller = GameObject.Find("/Controller").GetComponent<BirdController>();
         _outline = GetComponent<Outline>();
         _outline.enabled = false;
     }

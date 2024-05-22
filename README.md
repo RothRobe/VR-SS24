@@ -12,7 +12,7 @@ In Teil a) haben wir über die Aufgabenstellung hinaus den Raum mit Fenstern, ei
 In Teil b) haben wir zusätzlich eine Mauer mit Guckloch gebaut, sodass man mehr oder weniger gezwungen wird aus einem Blickwinkel in den Raum zu schauen, aus dem die Illusion stark ist. Rechts vom Spieler befindet sich eine Bombe, die aufgenommen und gegen die Wand geschmissen werden kann. Die Bombe bringt die Mauer zum Einsturz, wodurch man den Raum nun komplett betrachten kann. Außerdem kann auch hier eine Kamerafahrt gestartet werden, sodass auch in VR die Illusion vollständig verschwinden kann.
 
 
-### How To?
+### Steuerung
 In Teil a) kann die Kamerafahrt mit Leertaste gestartet werden. Die Kamera bewegt sich auf eine neue Position und wartet dort 5 Sekunden. So geht sie auf mehrere Positionen, bis die Ausgangsposition wieder erreicht ist.
 
 In Teil b) kann die Kamerafahrt ähnlich genutzt werden. Dafür muss zunächst die Mauer zerstört werden. Die Bombe kann entweder mit der Seitentaste des Controllers oder einer Pinch-Geste mit der Hand gegriffen werden. Dabei haben wir uns für eine Variante entschieden, bei der die Bombe auch auf Distanz gegriffen werden kann, um das Navigieren in VR zu vereinfachen. Wurde die Mauer zum Einsturz gebracht, so kann die Position entweder mit der "A"-Taste des rechten Controllers oder einer Thumbs Up Geste der rechten Hand verändert werden. Die Positionen sind diegleichen wie in Teil a), jedoch wurde sich hierbei für Teleportation entschieden, um Motion Sickness vorzubeugen.
@@ -20,11 +20,13 @@ In Teil b) kann die Kamerafahrt ähnlich genutzt werden. Dafür muss zunächst d
 ### Bildergalerie
 
 <img src="https://github.com/RothRobe/VR-SS24/assets/82387986/dc15cd65-0caf-4d4f-9308-38f6775a85ed" width="500">
-<img src="https://github.com/RothRobe/VR-SS24/assets/82387986/d7c9aaeb-0ff2-400c-8a90-38ef4318fa34" width="500">
+<img src="https://github.com/RothRobe/VR-SS24/assets/82387986/d7c9aaeb-0ff2-400c-8a90-38ef4318fa34" width="500"> 
+
 Das Skelett sieht optisch auf der linken Seite des Raums größer aus, als auf der rechten Seite des Raums.
 
-<img src="https://github.com/RothRobe/VR-SS24/assets/82387986/ee203950-678c-44b7-b6c6-49ab38e73392" width="500">
 <img src="https://github.com/RothRobe/VR-SS24/assets/82387986/d2d8441c-8875-47ad-aa92-d36de6c58ed1" width="500">
+<img src="https://github.com/RothRobe/VR-SS24/assets/82387986/ee203950-678c-44b7-b6c6-49ab38e73392" width="500">
+
 In VR kann entweder mit den Controllern oder Handgesten interagiert werden.
 
 
@@ -36,3 +38,21 @@ In VR kann entweder mit den Controllern oder Handgesten interagiert werden.
 [Skeleton Animations FREE](https://assetstore.unity.com/packages/3d/skeleton-animations-free-217504)
 
 [Soundeffekte von pixabay](https://pixabay.com/)
+
+
+## Projekt 2: Circles of Life
+Neben den bereits bekannten Aufgaben haben wir noch ein kleines Minispiel in VR eingebaut. Der kleine Spatz hilft dem letzten sprechenden Baum. Um den Baum zu retten, muss der kleine Vogel die Samen von 10 anderen Bäumen sammeln. Jedoch hat immer nur der größte Baum aktuell einen Samen. 
+(Wir hatten noch viele weitere Ideen. Beispielsweise sollte es Gegner geben und weitere Hindernisse und Challenges. Jedoch wollte wir das Projekt im Rahmen halten.)
+
+### Steuerung
+Der Text zu Beginn kann mit den Schultertasten des Controllers weiter gedrückt werden. Um einen Baum auszuwählen, den der Vogel umfliegen soll, kann mit dem Strahl des Controllers auf einem Baum gezeigt und mit der Schultertaste ausgewählt werden. Außerdem kann man sich mit dem rechten Thumbstick auch um die eigene Achse drehen.
+
+### Bildergalerie
+![Screenshot_1](https://github.com/RothRobe/VR-SS24/assets/82387986/cd3f33f5-3829-41ae-9bbc-97941381c593)
+![Screenshot_2](https://github.com/RothRobe/VR-SS24/assets/82387986/8cd194c3-f1db-472c-8d1c-79a3bcf73fdd)
+
+
+### Verwendete Assets
+[Quick Outline](https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488)
+
+[Stylized Low Poly Nature Lite](https://assetstore.unity.com/packages/3d/environments/landscapes/stylized-low-poly-nature-lite-275732)

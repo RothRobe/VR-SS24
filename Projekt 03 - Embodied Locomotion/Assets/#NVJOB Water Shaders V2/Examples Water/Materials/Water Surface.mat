@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Water Surface
+  m_Shader: {fileID: 4800000, guid: 104cb0e3a7464a3696069ea84b145eee, type: 3}
+  m_Parent: {fileID: 2100000, guid: 1a127b9031564ff99a732e71b9738356, type: 2}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - EFFECT_ALBEDO2
+  - EFFECT_FOAM
+  - EFFECT_MICROWAVE
+  - EFFECT_NORMALMAP2
+  - EFFECT_PARALLAX
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlbedoTex1:
+        m_Texture: {fileID: 2800000, guid: d6840f77873948aeba2cdce3985ccf47, type: 3}
+        m_Scale: {x: 50, y: 50}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: e7ee2ee1e448437e8de9a957ccc37298, type: 3}
+        m_Scale: {x: 50, y: 50}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d6840f77873948aeba2cdce3985ccf47, type: 3}
+        m_Scale: {x: 50, y: 50}
+        m_Offset: {x: 0, y: 0}
+    - _MirrorReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap1:
+        m_Texture: {fileID: 2800000, guid: e7ee2ee1e448437e8de9a957ccc37298, type: 3}
+        m_Scale: {x: 50, y: 50}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionCube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Albedo2Flow: 0.9
+    - _AlbedoContrast: 0.13
+    - _AlbedoIntensity: 4.2
+    - _ContrastMt: 0.13
+    - _FoamAmplitude: 13.39
+    - _FoamFlow: 8
+    - _FoamFrequency: 2
+    - _FoamGain: 0.65
+    - _FoamLacunarity: 8
+    - _Glossiness: 0.91
+    - _IntensityMicrowave: 0.68
+    - _IntensityMt: 4.2
+    - _IntensityNm: 1
+    - _IntensityRef: 2.3
+    - _MainDetailFlow: 1
+    - _MainDetailScale: 1
+    - _Metallic: 0.95
+    - _MicrowaveStrength: 0.91
+    - _MirrorFPOW: 5
+    - _MirrorR0: 0.01
+    - _MirrorWaveFlow: 5
+    - _MirrorWavePow: 1
+    - _MirrorWaveScale: 1
+    - _NormalMap1Strength: 0.8
+    - _NormalMap2Flow: -0.2
+    - _NormalMap2Strength: 0.5
+    - _NormalMap2Tiling: 1.2
+    - _NormalmapDetailScale: 1.2
+    - _NormalmapDetailSpeed: -0.1
+    - _Parallax: 0.1
+    - _ParallaxAmount: 0.1
+    - _ParallaxFlow: 30
+    - _ParallaxMapTiling: 0.51
+    - _ParallaxNoiseAmplitude: 3
+    - _ParallaxNoiseGain: 0.611
+    - _ParallaxNoiseLacunarity: 5
+    - _ParallaxNoiseScale: 1
+    - _ParallaxNormal2Offset: 2
+    - _ParallaxScale: 0.51
+    - _ReflectionContrast: 1
+    - _ReflectionSaturation: 1
+    - _ReflectionStrength: 0.15
+    - _ReverseFlow: 2.3
+    - _Shininess: 0.157
+    - _SoftFactor: 0.11
+    m_Colors:
+    - _AlbedoColor: {r: 1, g: 0.7921569, b: 0.5529412, a: 1}
+    - _Color: {r: 1, g: 0.7924575, b: 0.55200005, a: 1}
+    - _FoamColor: {r: 6.0628653, g: 5.474559, b: 4.8442297, a: 1}
+    - _FoamSoft: {r: 0.14, g: 0.4, b: 1.5, a: 0}
+    - _MirrorColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _MirrorDepthColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _ReflectColor: {r: 0.07605405, g: 0.084, b: 0.082864866, a: 1}
+    - _ReflectionColor: {r: 0.28, g: 0.29, b: 0.25, a: 0.5}
+    - _SpecColor: {r: 0.4, g: 0.4, b: 0.3764706, a: 1}
+  m_BuildTextureStacks: []

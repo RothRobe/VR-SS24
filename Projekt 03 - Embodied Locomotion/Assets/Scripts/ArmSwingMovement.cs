@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PedalMovementDetection : MonoBehaviour
+public class ArmSwingMovement : MonoBehaviour
 {
     public float movementSpeed = 5f;
     public int sampleSize = 20;
@@ -11,14 +11,12 @@ public class PedalMovementDetection : MonoBehaviour
 
     private OVRInput.Controller leftController = OVRInput.Controller.LTouch;
     private OVRInput.Controller rightController = OVRInput.Controller.RTouch;
-    
-    /*FUNKTIONIERT NICHT!!!!*/
+
     void Update()
     {
         // Positionen der Controller abfragen
         Vector3 leftPosition = OVRInput.GetLocalControllerPosition(leftController);
         Vector3 rightPosition = OVRInput.GetLocalControllerPosition(rightController);
-        Debug.Log(leftPosition + "\n" + rightPosition);
 
         // Neue Positionen hinzufügen
         leftPositions.Enqueue(leftPosition);
@@ -52,8 +50,16 @@ public class PedalMovementDetection : MonoBehaviour
         if ((leftMovement > 0 && rightMovement < 0) || (leftMovement < 0 && rightMovement > 0))
         {
             float combinedMovement = Mathf.Abs(leftMovement) + Mathf.Abs(rightMovement);
-            Vector3 forwardMovement = transform.forward * combinedMovement * movementSpeed * Time.deltaTime;
+            Vector3 forwardMovement = GetHMDForwardDirection() * combinedMovement * movementSpeed * Time.deltaTime;
+            // Nur X- und Z-Koordinaten verwenden
+            forwardMovement.y = 0f;
             transform.Translate(forwardMovement, Space.World);
         }
+    }
+
+    Vector3 GetHMDForwardDirection()
+    {
+        // HMD (Head-Mounted Display) abfragen und dessen Blickrichtung als Vorwärtsvektor zurückgeben
+        return Camera.main.transform.forward;
     }
 }

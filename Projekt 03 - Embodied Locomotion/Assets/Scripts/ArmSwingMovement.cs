@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ArmSwingMovement : MonoBehaviour
 {
+    public bool isWalking = true;
+    public Swimming swimming;
     public float movementSpeed = 5f;
     public int sampleSize = 20;
 
@@ -14,25 +16,31 @@ public class ArmSwingMovement : MonoBehaviour
 
     void Update()
     {
-        // Positionen der Controller abfragen
-        Vector3 leftPosition = OVRInput.GetLocalControllerPosition(leftController);
-        Vector3 rightPosition = OVRInput.GetLocalControllerPosition(rightController);
+        if (isWalking){    
+            // Positionen der Controller abfragen
+            Vector3 leftPosition = OVRInput.GetLocalControllerPosition(leftController);
+            Vector3 rightPosition = OVRInput.GetLocalControllerPosition(rightController);
 
-        // Neue Positionen hinzufügen
-        leftPositions.Enqueue(leftPosition);
-        rightPositions.Enqueue(rightPosition);
+            // Neue Positionen hinzufügen
+            leftPositions.Enqueue(leftPosition);
+            rightPositions.Enqueue(rightPosition);
 
-        // Alte Positionen entfernen, um die Queue auf die gewünschte Samplegröße zu beschränken
-        if (leftPositions.Count > sampleSize)
-        {
-            leftPositions.Dequeue();
-            rightPositions.Dequeue();
+            // Alte Positionen entfernen, um die Queue auf die gewünschte Samplegröße zu beschränken
+            if (leftPositions.Count > sampleSize)
+            {
+                leftPositions.Dequeue();
+                rightPositions.Dequeue();
+            }
+
+            // Bewegung analysieren
+            if (leftPositions.Count == sampleSize)
+            {
+                AnalyzeMovement();
+            }
         }
-
-        // Bewegung analysieren
-        if (leftPositions.Count == sampleSize)
-        {
-            AnalyzeMovement();
+        if(transform.position.y < 0.5){
+            swimming.isSwimming = true;
+            isWalking = false;
         }
     }
 

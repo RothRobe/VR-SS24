@@ -1,22 +1,26 @@
 
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Swimming : MonoBehaviour
 {
     public bool isSwimming = false;
     public ArmSwingMovement armSwingMovement;
+    public PedalMovementDetection pedalMovementDetection;
     public float movementSpeed = 2.5f;
     public int sampleSize = 20;
     private Queue<Vector3> leftPositions = new Queue<Vector3>();
     private Queue<Vector3> rightPositions = new Queue<Vector3>();
     private OVRInput.Controller leftController = OVRInput.Controller.LTouch;
     private OVRInput.Controller rightController = OVRInput.Controller.RTouch;
+    Rigidbody rb;
 
     // Update is called once per frame
     void Update()
     {
-        //if (isSwimming){
+        if (isSwimming){
             // Positionen der Controller abfragen
             Vector3 leftPosition = OVRInput.GetLocalControllerPosition(leftController);
             Vector3 rightPosition = OVRInput.GetLocalControllerPosition(rightController);
@@ -37,11 +41,13 @@ public class Swimming : MonoBehaviour
             {
                 AnalyzeMovement();
             }
-        //}
-        //if(transform.position.y < 0.5){
-        //    armSwingMovement.isWalking = true;
-        //    isSwimming = false;
-        //}
+        }
+        if((transform.position.y < 0.2) && (!pedalMovementDetection.bikeTouched)){
+            armSwingMovement.isWalking = false;
+            isSwimming = true;
+            pedalMovementDetection.isRiding = false;
+            rb.useGravity = false;
+        }
     }
 
     void AnalyzeMovement()
@@ -51,6 +57,15 @@ public class Swimming : MonoBehaviour
 
         Vector3 leftEnd = leftPositions.ToArray()[sampleSize - 1];
         Vector3 rightEnd = rightPositions.ToArray()[sampleSize - 1];
+
+        Vector3 leftMid = leftPositions.ToArray()[sampleSize/2];
+        Vector3 rightMid = rightPositions.ToArray()[sampleSize/2];
+
+        float leftMovementX1 = leftMid.x - leftStart.x;
+        float rightMovementX1 = rightMid.x - rightStart.x;
+
+        float leftMovementX2 = leftEnd.x - leftMid.x;
+        float rightMovementX2 = rightEnd.x - rightMid.x;
 
         float leftMovementX = leftEnd.x - leftStart.x;
         float rightMovementX = rightEnd.x - rightStart.x;
@@ -65,8 +80,9 @@ public class Swimming : MonoBehaviour
         {
             float combinedMovement = Mathf.Abs(leftMovementX) + Mathf.Abs(rightMovementX);
             Vector3 forwardMovement = GetHMDForwardDirection() * combinedMovement * movementSpeed * Time.deltaTime;
-            // Nur X- und Z-Koordinaten verwenden
-            //forwardMovement.y = 0f;
+            if(transform.position.y > 0.2){
+                forwardMovement.y = 0f;
+            }
             transform.Translate(forwardMovement, Space.World);
         }
     }

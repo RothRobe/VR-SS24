@@ -1,13 +1,16 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ArmSwingMovement : MonoBehaviour
 {
     public bool isWalking = true;
     public Swimming swimming;
+    public PedalMovementDetection pedalMovementDetection;
     public float movementSpeed = 5f;
     public int sampleSize = 20;
 
+    Rigidbody rb;
     private Queue<Vector3> leftPositions = new Queue<Vector3>();
     private Queue<Vector3> rightPositions = new Queue<Vector3>();
 
@@ -16,7 +19,7 @@ public class ArmSwingMovement : MonoBehaviour
 
     void Update()
     {
-        if (isWalking){    
+        if (isWalking){  
             // Positionen der Controller abfragen
             Vector3 leftPosition = OVRInput.GetLocalControllerPosition(leftController);
             Vector3 rightPosition = OVRInput.GetLocalControllerPosition(rightController);
@@ -38,9 +41,11 @@ public class ArmSwingMovement : MonoBehaviour
                 AnalyzeMovement();
             }
         }
-        if(transform.position.y < 0.5){
-            swimming.isSwimming = true;
-            isWalking = false;
+        if(transform.position.y > 0.2 && !pedalMovementDetection.bikeTouched){
+            swimming.isSwimming = false;
+            isWalking = true;
+            pedalMovementDetection.isRiding = false;
+            rb.useGravity = true;
         }
     }
 
@@ -52,8 +57,8 @@ public class ArmSwingMovement : MonoBehaviour
         Vector3 leftEnd = leftPositions.ToArray()[sampleSize - 1];
         Vector3 rightEnd = rightPositions.ToArray()[sampleSize - 1];
 
-        float leftMovement = (leftEnd.y - leftStart.y);
-        float rightMovement = (rightEnd.y - rightStart.y);
+        float leftMovement = leftEnd.y - leftStart.y;
+        float rightMovement = rightEnd.y - rightStart.y;
 
         if ((leftMovement > 0 && rightMovement < 0) || (leftMovement < 0 && rightMovement > 0))
         {

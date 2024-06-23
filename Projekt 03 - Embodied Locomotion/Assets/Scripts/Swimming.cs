@@ -9,7 +9,7 @@ public class Swimming : MonoBehaviour
     public bool isSwimming = false;
     public ArmSwingMovement armSwingMovement;
     public PedalMovementDetection pedalMovementDetection;
-    public float movementSpeed = 2.5f;
+    public float movementSpeed = 4f;
     public int sampleSize = 20;
     private Queue<Vector3> leftPositions = new Queue<Vector3>();
     private Queue<Vector3> rightPositions = new Queue<Vector3>();
@@ -61,12 +61,6 @@ public class Swimming : MonoBehaviour
         Vector3 leftMid = leftPositions.ToArray()[sampleSize/2];
         Vector3 rightMid = rightPositions.ToArray()[sampleSize/2];
 
-        float leftMovementX1 = leftMid.x - leftStart.x;
-        float rightMovementX1 = rightMid.x - rightStart.x;
-
-        float leftMovementX2 = leftEnd.x - leftMid.x;
-        float rightMovementX2 = rightEnd.x - rightMid.x;
-
         float leftMovementX = leftEnd.x - leftStart.x;
         float rightMovementX = rightEnd.x - rightStart.x;
 
@@ -80,9 +74,9 @@ public class Swimming : MonoBehaviour
         {
             float combinedMovement = Mathf.Abs(leftMovementX) + Mathf.Abs(rightMovementX);
             Vector3 forwardMovement = GetHMDForwardDirection() * combinedMovement * movementSpeed * Time.deltaTime;
-            if(transform.position.y > 0.2){
+            /*if(transform.position.y > 0.2){
                 forwardMovement.y = 0f;
-            }
+            }*/
             transform.Translate(forwardMovement, Space.World);
         }
     }

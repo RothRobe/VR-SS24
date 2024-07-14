@@ -13,6 +13,7 @@ public class WürfelZählen : MonoBehaviour
     public TextMeshProUGUI textMeshPro;
     public Button nextButton;
     public GameObject würfel;
+    public Spielstand spielstand;
 
     public void OnButtonClick(Button clickedButton){
         switch(clickedButton.name){
@@ -62,7 +63,7 @@ public class WürfelZählen : MonoBehaviour
         answer = int.Parse(textMeshPro.text);
         if(answer == anzahl){
             textMeshPro.text += "\nHerzlichen Glückwunsch! Die Antwort ist richtig! Du erhälst einen Punkt.";
-            //Gesamtpunktzahl erhöhen
+            spielstand.incrementPunkteStand();
         }else{
             textMeshPro.text += "\nDie Antwort ist leider falsch. Dafür gibt es keinen Punkt :(";
         }

@@ -15,6 +15,8 @@ public class Baumeister : MonoBehaviour
     public GameObject[] spielsteine;
     public Vector3Int boardSize = new Vector3Int(5, 5, 2); 
 
+    public Spielstand spielstand;
+
     public List<int[,,]> musterListe = new List<int[,,]>{
         new int[,,] {
             {
@@ -95,7 +97,7 @@ public class Baumeister : MonoBehaviour
     public void buttonAccept(){
         if(proveAllPatterns()){
             textMeshPro.text += "\nHerzlichen Glückwunsch! Das sieht gut aus! Du erhälst einen Punkt.";
-            //Gesamtpunktzahl erhöhen
+            spielstand.incrementPunkteStand();
         }else{
             textMeshPro.text += "\nIn deinem Bauwerk hat sich leider ein Fehler eingeschlichen. Dafür gibt es keinen Punkt :(";
         }

@@ -102,7 +102,6 @@ public class Baumeister : MonoBehaviour
         }
     }
 
-
     /*public void OnButtonClick(Button clickedButton){
         if(clickedButton.name == "Button confirm"){
             buttonAccept();
@@ -142,6 +141,17 @@ public class Baumeister : MonoBehaviour
 
     bool provePattern(int[,,] muster){
         int[,,] field = new int[boardSize.x, boardSize.y, boardSize.z];
+
+        for (int i = 0; i < boardSize.x; i++)
+        {
+            for (int j = 0; j < boardSize.y; j++)
+            {
+                for (int k = 0; k < boardSize.z; k++)
+                {
+                    field[i, j, k] = 0;
+                }
+            }
+        }
         
         Vector3 spielfeldPosition = spielfeld.transform.position;
         Vector3 spielfeldScale = spielfeld.transform.localScale;
@@ -156,7 +166,6 @@ public class Baumeister : MonoBehaviour
             int x = Mathf.FloorToInt(localPos.x / cellBreite);
             int y = Mathf.FloorToInt(localPos.y / cellHöhe);
             int z = Mathf.FloorToInt(localPos.z / cellTiefe);
-
             
             if (x >= 0 && x < boardSize.x && y >= 0 && y < boardSize.y && z >= 0 && z < boardSize.z)
             {

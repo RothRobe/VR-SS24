@@ -1,15 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 
 public class Baumeister : MonoBehaviour
 {
     public TextMeshProUGUI textMeshPro;
-    public Button nextButton;
-    public GameObject baumeister;
+    public GameObject retryButton;
+    public GameObject confirmButton;
+    public GameObject würfelzählen;
 
     public GameObject spielfeld;
     public GameObject[] spielsteine;
@@ -84,6 +87,21 @@ public class Baumeister : MonoBehaviour
         }
     };
 
+    private Vector3[] _steinposition;
+    private Quaternion[] _steinrotation;
+
+    private void Start()
+    {
+        int length = spielsteine.Length;
+        _steinposition = new Vector3[length];
+        _steinrotation = new Quaternion[length];
+        for (int i = 0; i < length; i++)
+        {
+            _steinposition[i] = spielsteine[i].transform.position;
+            _steinrotation[i] = spielsteine[i].transform.rotation;
+        }
+    }
+
 
     /*public void OnButtonClick(Button clickedButton){
         if(clickedButton.name == "Button confirm"){
@@ -94,18 +112,32 @@ public class Baumeister : MonoBehaviour
         }
     }*/
 
-    public void buttonAccept(){
-        if(proveAllPatterns()){
-            textMeshPro.text += "\nHerzlichen Glückwunsch! Das sieht gut aus! Du erhälst einen Punkt.";
+    public void buttonAccept()
+    {
+        retryButton.SetActive(true);
+        confirmButton.SetActive(false);
+        /*if(proveAllPatterns()){
+            textMeshPro.text = "\nHerzlichen Glückwunsch! Das sieht gut aus! Du erhälst einen Punkt.";
             spielstand.incrementPunkteStand();
-        }else{
-            textMeshPro.text += "\nIn deinem Bauwerk hat sich leider ein Fehler eingeschlichen. Dafür gibt es keinen Punkt :(";
-        }
-        ActivateNext();
+        }else{*/
+            textMeshPro.text = "\nIn deinem Bauwerk hat sich leider ein Fehler eingeschlichen. Dafür gibt es keinen Punkt :(" +
+                                "\nDu hast " + spielstand.GetPunkteStand() + " von " + spielstand.GetMaxPunkte() + " Punkten erreicht.";
+        //}
     }
 
-    void ActivateNext(){
-        nextButton.gameObject.SetActive(true);
+    public void Retry()
+    {
+        retryButton.gameObject.SetActive(false);
+        confirmButton.SetActive(true);
+        textMeshPro.text = "";
+        for (int i = 0; i < spielsteine.Length; i++)
+        {
+            spielsteine[i].transform.position = _steinposition[i];
+            spielsteine[i].transform.rotation = _steinrotation[i];
+        }
+        gameObject.SetActive(false);
+        würfelzählen.SetActive(true);
+        
     }
 
     bool provePattern(int[,,] muster){
@@ -149,7 +181,9 @@ public class Baumeister : MonoBehaviour
         return true;
     }
 
-    bool proveAllPatterns() {
+    bool proveAllPatterns()
+    {
+        return false;
         foreach (var muster in musterListe){
             if (provePattern(muster)){
                 return true;

@@ -69,7 +69,7 @@ public class WürfelZählen : MonoBehaviour
         answer = int.Parse(textMeshPro.text);
         if(answer == anzahl){
             textMeshPro.text += "\nHerzlichen Glückwunsch! Die Antwort ist richtig! Du erhälst einen Punkt.";
-            //spielstand.incrementPunkteStand();
+            spielstand.incrementPunkteStand();
         }else{
             textMeshPro.text += "\nDie Antwort ist leider falsch. Dafür gibt es keinen Punkt :(";
         }
@@ -82,5 +82,13 @@ public class WürfelZählen : MonoBehaviour
     public void ActivateNextGame(){
         gameObject.SetActive(false);
         BauMeister.SetActive(true);
+        Reset();
+    }
+
+    public void Reset()
+    {
+        textMeshPro.text = "";
+        nextButton.SetActive(false);
+        _gameActive = true;
     }
 }

@@ -13,7 +13,7 @@ public class Baumeister : MonoBehaviour
 
     public GameObject spielfeld;
     public GameObject[] spielsteine;
-    public Vector3Int boardSize = new Vector3Int(5, 5, 2); 
+    public Vector3Int boardSize = new Vector3Int(5, 2, 5); 
 
     public Spielstand spielstand;
 
@@ -85,14 +85,14 @@ public class Baumeister : MonoBehaviour
     };
 
 
-    public void OnButtonClick(Button clickedButton){
-        if(clickedButton.name == "Button accept"){
+    /*public void OnButtonClick(Button clickedButton){
+        if(clickedButton.name == "Button confirm"){
             buttonAccept();
         }
         if(clickedButton.name == "Button Next"){
             baumeister.gameObject.SetActive(false);
         }
-    }
+    }*/
 
     public void buttonAccept(){
         if(proveAllPatterns()){

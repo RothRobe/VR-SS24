@@ -16,6 +16,8 @@ public class Baumeister : MonoBehaviour
 
     public GameObject spielfeld;
     public GameObject[] spielsteine;
+
+    public GameObject[] spielsteinCubes;
     public Vector3Int boardSize = new Vector3Int(5, 2, 5); 
 
     public Spielstand spielstand;
@@ -160,7 +162,7 @@ public class Baumeister : MonoBehaviour
         float cellHöhe = spielfeldScale.y / boardSize.y;
         float cellTiefe = spielfeldScale.z / boardSize.z;
 
-        foreach (GameObject stein in spielsteine)
+        foreach (GameObject stein in spielsteinCubes)
         {
             Vector3 localPos = stein.transform.position - spielfeldPosition;
             int x = Mathf.FloorToInt(localPos.x / cellBreite);

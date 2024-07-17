@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class WürfelZählen : MonoBehaviour
 {
@@ -11,12 +12,17 @@ public class WürfelZählen : MonoBehaviour
     int answer;
 
     public TextMeshProUGUI textMeshPro;
-    public Button nextButton;
-    public GameObject würfel;
+    public GameObject nextButton;
+    //public GameObject würfel;
     public Spielstand spielstand;
+    public GameObject BauMeister;
 
-    public void OnButtonClick(Button clickedButton){
-        switch(clickedButton.name){
+    private bool _gameActive = true;
+
+    public void OnButtonClick(string input)
+    {
+        if (!_gameActive) return;
+        switch(input){
             case "Button 0":
                 textMeshPro.text += "0";
                 break;
@@ -48,18 +54,18 @@ public class WürfelZählen : MonoBehaviour
                 textMeshPro.text += "9";
                 break;
             case "Button accept":
-                buttonAccept();
+                ButtonAccept();
                 break;
             case "Button delete":
                 textMeshPro.text = "";
                 break;
-            case "Button Next":
+            /*case "Button Next":
                 würfel.gameObject.SetActive(false);
-                break;
+                break;*/
         }
     }
 
-    public void buttonAccept(){
+    void ButtonAccept(){
         answer = int.Parse(textMeshPro.text);
         if(answer == anzahl){
             textMeshPro.text += "\nHerzlichen Glückwunsch! Die Antwort ist richtig! Du erhälst einen Punkt.";
@@ -67,21 +73,14 @@ public class WürfelZählen : MonoBehaviour
         }else{
             textMeshPro.text += "\nDie Antwort ist leider falsch. Dafür gibt es keinen Punkt :(";
         }
-        DeactivateAllButtons();
-        ActivateNext();
-    }
 
-    void DeactivateAllButtons() {
-        // Finde alle Buttons im Spielobjekt
-        Button[] buttons = GetComponentsInChildren<Button>();
-
-        // Gehe durch alle Buttons und deaktiviere ihre Interaktivität
-        foreach(Button button in buttons) {
-            button.interactable = false;
-        }
-    }
-
-    void ActivateNext(){
+        _gameActive = false;
         nextButton.gameObject.SetActive(true);
+    }
+    
+
+    public void ActivateNextGame(){
+        gameObject.SetActive(false);
+        BauMeister.SetActive(true);
     }
 }

@@ -117,13 +117,15 @@ public class Baumeister : MonoBehaviour
     {
         retryButton.SetActive(true);
         confirmButton.SetActive(false);
-        /*if(proveAllPatterns()){
+        if(proveAllPatterns()){
             textMeshPro.text = "\nHerzlichen Glückwunsch! Das sieht gut aus! Du erhälst einen Punkt.";
             spielstand.incrementPunkteStand();
-        }else{*/
-            textMeshPro.text = "\nIn deinem Bauwerk hat sich leider ein Fehler eingeschlichen. Dafür gibt es keinen Punkt :(" +
-                                "\nDu hast " + spielstand.GetPunkteStand() + " von " + spielstand.GetMaxPunkte() + " Punkten erreicht.";
-        //}
+        }else{
+            textMeshPro.text = "\nIn deinem Bauwerk hat sich leider ein Fehler eingeschlichen. Dafür gibt es keinen Punkt :(";
+        }
+
+        textMeshPro.text += "\nDu hast " + spielstand.GetPunkteStand() + " von " + spielstand.GetMaxPunkte() +
+                           " Punkten erreicht.";
     }
 
     public void Retry()
@@ -194,7 +196,6 @@ public class Baumeister : MonoBehaviour
 
     bool proveAllPatterns()
     {
-        return false;
         foreach (var muster in musterListe){
             if (provePattern(muster)){
                 return true;

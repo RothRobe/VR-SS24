@@ -126,3 +126,5 @@ sysinfo.txt
 
 *.apk
 *.blob
+
+*DoNotShip

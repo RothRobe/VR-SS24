@@ -1,6 +1,7 @@
 # Virtual Reality und 3D Interaktionen im Sommersemester 2024
 Die Projekte für das Modul "VR und 3D Interaktion" im Sommersemester 2024
 Der Code befindet sich unter: [https://github.com/RothRobe/VR-SS24](https://github.com/RothRobe/VR-SS24)
+Die apk befindet sich unter: [https://seafile.rlp.net/d/e50c527fafb8484895f3/](https://seafile.rlp.net/d/e50c527fafb8484895f3/)
 
 Wird für jedes Projekt erweitert.
 
@@ -56,3 +57,19 @@ Der Text zu Beginn kann mit den Schultertasten des Controllers weiter gedrückt 
 [Quick Outline](https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488)
 
 [Stylized Low Poly Nature Lite](https://assetstore.unity.com/packages/3d/environments/landscapes/stylized-low-poly-nature-lite-275732)
+
+## Projekt 4: Serious Game
+In unserem Projekt geht es huaptsächlich um das Erlernen von logischem und räumlichen Denken. Nebenbei wird auch die Konzentration, Genauigkeit und Geduld trainiert.
+Der Raum ist ziemlich einfach gehalten, um den Fokus auf die Aufgaben zu lenken und möglichst wenig Ablenkung zu bieten.
+Es gibt aktuell zwei Aufgaben, die gelöst werden müssen. Dabei werden auch die erreichten Punkte (je ein Punkt pro richtiges Rätsel) gezählt, sodass Erweiterungen wie eine persönliche Bestenliste denkbar sind.
+
+### Aufgabe 1:
+Hierbei müssen die Personen herausfinden, wie viele kleine Würfel sich in dem großen Würfel befinden. Die Anzahl der Würfel muss mithilfe von Buttons eingegeben werden. Dabei ist es wichtig, dass die Kontroller die Schaltfläche auch wirklich berühren, um die Eingabe zu akzeptieren. Die Zahl erscheint dann in einem Textfeld über den Buttons. Der rote Button leert das Textfeld und der grüne dient zum Bestätigen, wenn man mit der Zahl zufrieden ist. Er mit Betätigen von dem grünen Button erscheint der Button "Next", der das zweite Rätsel startet.
+
+### Aufgabe 2:
+Hierbei muss die Person ein vorgegebenes dunkelgrünes Bauwerk aus einzelnen Bausteinen in der freien Fläche nachbauen. Die Steine können mit der Seitentaste in die Hand gezogen werden. Man kann die Steine drehen und sie dann in dem Feld ablegen. Sobald man das Bauwerk nachgebaut hat, kann man den grünen Button betätigen. Im Anschluss erscheint ein Button "Retry", mit dem man das Spiel von vorne starten kann.
+
+### Verwendete Assets:
+[Deckenlamp](https://assetstore.unity.com/packages/3d/props/interior/free-pbr-lamps-70181)
+
+
